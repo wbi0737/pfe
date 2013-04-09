@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Offre" table="offre">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="createdAt" type="date" column="created_at" nullable="true"/>
+    <field name="expiredAt" type="date" column="expired_at" nullable="true"/>
+    <field name="designation" type="string" column="designation" length="45" nullable="true"/>
+    <field name="userId" type="integer" column="user_id" nullable="true"/>
+    <field name="cahierCharge" type="string" column="cahier-charge" length="45" nullable="true"/>
+    <field name="code" type="integer" column="code" nullable="true"/>
+  </entity>
+</doctrine-mapping>

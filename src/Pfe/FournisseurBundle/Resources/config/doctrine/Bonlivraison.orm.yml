@@ -1,0 +1,40 @@
+Pfe\FournisseurBundle\Entity\Bonlivraison:
+    type: entity
+    table: bonlivraison
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        numero:
+            type: integer
+            unsigned: false
+            nullable: true
+        dateLiv:
+            type: date
+            nullable: true
+            column: date_liv
+        numBc:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: num_BC
+        objet:
+            type: string
+            length: 200
+            fixed: false
+            nullable: true
+    manyToOne:
+        boncommande:
+            targetEntity: Boncommande
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                boncommande_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

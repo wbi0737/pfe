@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Facture" table="facture">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numero" type="integer" column="numero" nullable="true"/>
+    <field name="dateFacture" type="datetime" column="date-facture" nullable="true"/>
+    <field name="codeFournisseur" type="integer" column="code-fournisseur" nullable="true"/>
+    <field name="objetFacture" type="string" column="objet-facture" length="45" nullable="true"/>
+    <field name="numBc" type="integer" column="num-bc" nullable="true"/>
+    <field name="tht" type="string" column="tht" length="45" nullable="true"/>
+    <field name="trem" type="string" column="trem" length="45" nullable="true"/>
+    <field name="ttva" type="string" column="ttva" length="45" nullable="true"/>
+    <field name="tttc" type="string" column="tttc" length="45" nullable="true"/>
+    <many-to-one field="boncommande" target-entity="Boncommande">
+      <join-columns>
+        <join-column name="boncommande_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

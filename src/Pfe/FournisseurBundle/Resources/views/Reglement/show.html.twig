@@ -1,0 +1,41 @@
+<h1>Reglement</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Numreg</th>
+            <td>{{ entity.numReg }}</td>
+        </tr>
+        <tr>
+            <th>Datereg</th>
+            <td>{{ entity.dateReg|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Factureboncommandeid</th>
+            <td>{{ entity.factureBoncommandeId }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('reglement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('reglement_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('reglement_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

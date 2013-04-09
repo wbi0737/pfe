@@ -1,0 +1,66 @@
+Facture:
+    type: entity
+    table: facture
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        numero:
+            type: integer
+            unsigned: false
+            nullable: true
+        dateFacture:
+            type: datetime
+            nullable: true
+            column: date-facture
+        codeFournisseur:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: code-fournisseur
+        objetFacture:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: objet-facture
+        numBc:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: num-bc
+        tht:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        trem:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        ttva:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        tttc:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+    manyToOne:
+        boncommande:
+            targetEntity: Boncommande
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                boncommande_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

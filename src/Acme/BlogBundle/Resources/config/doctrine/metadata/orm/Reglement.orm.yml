@@ -1,0 +1,36 @@
+Reglement:
+    type: entity
+    table: reglement
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        numReg:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: num-reg
+        dateReg:
+            type: datetime
+            nullable: true
+            column: date-reg
+        factureBoncommandeId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: facture_boncommande_id
+    manyToOne:
+        facture:
+            targetEntity: Facture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                facture_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

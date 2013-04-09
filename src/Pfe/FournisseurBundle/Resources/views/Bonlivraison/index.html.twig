@@ -1,0 +1,43 @@
+<h1>Bonlivraison list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numero</th>
+            <th>Dateliv</th>
+            <th>Numbc</th>
+            <th>Objet</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('bonlivraison_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.numero }}</td>
+            <td>{% if entity.dateLiv %}{{ entity.dateLiv|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.numBc }}</td>
+            <td>{{ entity.objet }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('bonlivraison_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('bonlivraison_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('bonlivraison_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

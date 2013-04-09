@@ -1,0 +1,30 @@
+Article:
+    type: entity
+    table: article
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        code:
+            type: integer
+            unsigned: false
+            nullable: true
+        libelle:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        prixAchat:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: prix_achat
+        tva:
+            type: integer
+            unsigned: false
+            nullable: true
+    lifecycleCallbacks: {  }

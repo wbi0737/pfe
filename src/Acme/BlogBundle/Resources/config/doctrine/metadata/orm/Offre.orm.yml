@@ -1,0 +1,40 @@
+Offre:
+    type: entity
+    table: offre
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        createdAt:
+            type: date
+            nullable: true
+            column: created_at
+        expiredAt:
+            type: date
+            nullable: true
+            column: expired_at
+        designation:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        userId:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: user_id
+        cahierCharge:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: cahier-charge
+        code:
+            type: integer
+            unsigned: false
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Reglement" table="reglement">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numReg" type="integer" column="num-reg" nullable="true"/>
+    <field name="dateReg" type="datetime" column="date-reg" nullable="true"/>
+    <field name="factureBoncommandeId" type="integer" column="facture_boncommande_id" nullable="false"/>
+    <many-to-one field="facture" target-entity="Facture">
+      <join-columns>
+        <join-column name="facture_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

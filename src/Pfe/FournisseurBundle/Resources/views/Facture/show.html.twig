@@ -1,0 +1,65 @@
+<h1>Facture</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Numero</th>
+            <td>{{ entity.numero }}</td>
+        </tr>
+        <tr>
+            <th>Datefacture</th>
+            <td>{{ entity.dateFacture|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Codefournisseur</th>
+            <td>{{ entity.codeFournisseur }}</td>
+        </tr>
+        <tr>
+            <th>Objetfacture</th>
+            <td>{{ entity.objetFacture }}</td>
+        </tr>
+        <tr>
+            <th>Numbc</th>
+            <td>{{ entity.numBc }}</td>
+        </tr>
+        <tr>
+            <th>Tht</th>
+            <td>{{ entity.tht }}</td>
+        </tr>
+        <tr>
+            <th>Trem</th>
+            <td>{{ entity.trem }}</td>
+        </tr>
+        <tr>
+            <th>Ttva</th>
+            <td>{{ entity.ttva }}</td>
+        </tr>
+        <tr>
+            <th>Tttc</th>
+            <td>{{ entity.tttc }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('facture') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('facture_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('facture_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

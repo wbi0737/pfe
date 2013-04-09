@@ -1,0 +1,35 @@
+Pfe\FournisseurBundle\Entity\Lignecommande:
+    type: entity
+    table: lignecommande
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        quantite:
+            type: integer
+            unsigned: false
+            nullable: true
+    manyToOne:
+        boncommande:
+            targetEntity: Boncommande
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                boncommande_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        article:
+            targetEntity: Article
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                article_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

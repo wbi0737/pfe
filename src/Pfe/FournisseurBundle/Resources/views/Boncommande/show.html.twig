@@ -1,0 +1,45 @@
+<h1>Boncommande</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Numero</th>
+            <td>{{ entity.numero }}</td>
+        </tr>
+        <tr>
+            <th>Datemouvement</th>
+            <td>{{ entity.dateMouvement|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Objetbc</th>
+            <td>{{ entity.objetBc }}</td>
+        </tr>
+        <tr>
+            <th>Designationlivraison</th>
+            <td>{{ entity.designationLivraison }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('boncommande') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('boncommande_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('boncommande_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

@@ -1,0 +1,53 @@
+<h1>Facture list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numero</th>
+            <th>Datefacture</th>
+            <th>Codefournisseur</th>
+            <th>Objetfacture</th>
+            <th>Numbc</th>
+            <th>Tht</th>
+            <th>Trem</th>
+            <th>Ttva</th>
+            <th>Tttc</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('facture_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.numero }}</td>
+            <td>{% if entity.dateFacture %}{{ entity.dateFacture|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.codeFournisseur }}</td>
+            <td>{{ entity.objetFacture }}</td>
+            <td>{{ entity.numBc }}</td>
+            <td>{{ entity.tht }}</td>
+            <td>{{ entity.trem }}</td>
+            <td>{{ entity.ttva }}</td>
+            <td>{{ entity.tttc }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('facture_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('facture_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('facture_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,41 @@
+<h1>Reglement list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numreg</th>
+            <th>Datereg</th>
+            <th>Factureboncommandeid</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('reglement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.numReg }}</td>
+            <td>{% if entity.dateReg %}{{ entity.dateReg|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.factureBoncommandeId }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('reglement_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('reglement_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('reglement_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
