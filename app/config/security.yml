@@ -27,8 +27,19 @@ security:
             security: false
 
         login:
-            pattern:  ^/demo/secured/login$
-            security: false
+            pattern:   ^/(login$|register|resetting)  # Les adresses de ces pages sont login, register et resetting
+            anonymous: true                           # On autorise bien évidemment les anonymes sur ces pages !
+
+        # Firewall principal pour le reste de notre site
+        main:
+            pattern: ^/                      # ^/ = tout ce qui commence par / = tout notre site
+            form_login:                      # On définit notre méthode d'authentification
+                provider:    fos_userbundle  # On lit l'authentification au provider définit plus haut
+                remember_me: true            # On active la possibilité du "Se souvenir de moi" (désactivé par défaut)
+            remember_me:
+                key:         %secret%        # On définit la clé pour le remember_me (%secret% est un parametre de parameters.ini)
+            anonymous:       false            # On autorise les utilisateurs anonymes (non identifiés)
+            logout:          true            # On autorise la déconnexion manuelle (désactivé par défaut)
 
         secured_area:
             pattern:    ^/demo/secured/
@@ -41,6 +52,7 @@ security:
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
+
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
